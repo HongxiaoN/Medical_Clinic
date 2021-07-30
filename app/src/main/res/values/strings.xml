@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Medical_Clinic</string>
+    <string name="button_send">Upcoming Appointment</string>
+    <string name="button2_send">Book Appointment</string>
 </resources>
