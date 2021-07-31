@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/limle/AndroidStudioProjects/Medical_Clinic/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/limle/AndroidStudioProjects/Medical_Clinic/app/src/main/res/layout/activity_appointment.xml" value="0.33" />
+        <entry key="..\:/Users/limle/AndroidStudioProjects/Medical_Clinic/app/src/main/res/layout/activity_display_doctor.xml" value="0.33" />
+        <entry key="..\:/Users/limle/AndroidStudioProjects/Medical_Clinic/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.38745049895245137" />
       </map>
     </option>
