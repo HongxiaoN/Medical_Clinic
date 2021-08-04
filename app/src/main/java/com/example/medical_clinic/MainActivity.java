@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Write a message to the database
+//        FirebaseDatabase.getInstance().getReference("Test2").setValue("bbb");
     }
 
     public void displayDoctor(View view){
@@ -23,4 +25,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AppointmentActivity.class);
         startActivity(intent);
     }
+
 }
