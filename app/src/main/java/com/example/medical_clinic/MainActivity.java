@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Write a message to the database
+        // Successfully link in firebase
                 FirebaseDatabase.getInstance().getReference("Test2").setValue("bbb")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
