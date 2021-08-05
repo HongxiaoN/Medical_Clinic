@@ -18,4 +18,10 @@ public class doctor_mainpage extends AppCompatActivity {
         Intent intent = new Intent(this, ListOfPatientActivity.class);
         startActivity(intent);
     }
+
+    public void displayDoctorSchedule(View view){
+        Intent intent = new Intent(this, doctor_schedulepage.class);
+        startActivity(intent);
+    }
+
 }
