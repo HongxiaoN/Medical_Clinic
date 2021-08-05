@@ -2,4 +2,6 @@
     <string name="app_name">Medical_Clinic</string>
     <string name="button_send">Upcoming Appointment</string>
     <string name="button2_send">Book Appointment</string>
+    <string name="button_doctorUpcomingApp">Upcoming Appointment</string>
+    <string name="button_doctorViewSchedule">My Schedule</string>
 </resources>
