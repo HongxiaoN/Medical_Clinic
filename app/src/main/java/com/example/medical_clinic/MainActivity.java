@@ -1,5 +1,5 @@
 package com.example.medical_clinic;
-
+// this is for patient
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 

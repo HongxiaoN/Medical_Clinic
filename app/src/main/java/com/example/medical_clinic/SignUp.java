@@ -18,4 +18,6 @@ public class SignUp extends AppCompatActivity {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
+
+    // sign up 的 botton :btnlogin 还没写
 }
