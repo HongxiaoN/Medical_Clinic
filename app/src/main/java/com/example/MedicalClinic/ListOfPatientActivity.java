@@ -1,11 +1,9 @@
-package com.example.medical_clinic;
+package com.example.MedicalClinic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.content.Intent;
 
 public class ListOfPatientActivity extends AppCompatActivity {
 

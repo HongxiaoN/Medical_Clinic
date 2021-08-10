@@ -1,4 +1,4 @@
-package com.example.medical_clinic;
+package com.example.MedicalClinic;
 
 import android.content.Context;
 

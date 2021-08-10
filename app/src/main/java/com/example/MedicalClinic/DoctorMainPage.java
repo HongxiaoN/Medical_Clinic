@@ -1,4 +1,4 @@
-package com.example.medical_clinic;
+package com.example.MedicalClinic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class doctor_mainpage extends AppCompatActivity {
+public class DoctorMainPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class doctor_mainpage extends AppCompatActivity {
     }
 
     public void displayDoctorSchedule(View view){
-        Intent intent = new Intent(this, doctor_schedulepage.class);
+        Intent intent = new Intent(this, DoctorSchedulePage.class);
         startActivity(intent);
     }
 

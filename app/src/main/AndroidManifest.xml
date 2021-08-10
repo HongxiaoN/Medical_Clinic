@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.medical_clinic">
+    package="com.example.MedicalClinic">
 
     <application
         android:allowBackup="true"
@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Medical_Clinic">
-        <activity android:name=".SignUp"></activity>
-        <activity android:name=".Login" />
+        <activity android:name="com.example.MedicalClinic.SignUp"></activity>
+        <activity android:name="com.example.MedicalClinic.Login" />
         <activity
-            android:name=".ListOfPatientActivity"
+            android:name="com.example.MedicalClinic.ListOfPatientActivity"
             android:exported="true" />
         <activity
-            android:name=".doctor_mainpage"
+            android:name="com.example.MedicalClinic.DoctorMainPage"
             android:exported="true" />
-        <activity android:name=".AppointmentActivity" />
-        <activity android:name=".DisplayDoctorActivity" />
+        <activity android:name="com.example.MedicalClinic.AppointmentActivity" />
+        <activity android:name="com.example.MedicalClinic.DisplayDoctorActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.MedicalClinic.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
