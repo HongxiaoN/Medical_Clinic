@@ -31,13 +31,17 @@ public class PatientDashboardActivity extends AppCompatActivity implements View.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_dashboard);
 
-        ((Button) findViewById(R.id.btnBook)).setOnClickListener(this);
+        btnBook = (Button) findViewById(R.id.btnBook);
+        btnBook.setOnClickListener(this);
 
-        ((Button) findViewById(R.id.btnUpcomingAppointments)).setOnClickListener(this);
+        btnUpcomingAppointments = (Button) findViewById(R.id.btnUpcomingAppointments);
+        btnUpcomingAppointments.setOnClickListener(this);
 
-        ((Button) findViewById(R.id.btnPreviousAppointments)).setOnClickListener(this);
+        btnPreviousAppointments = (Button) findViewById(R.id.btnPreviousAppointments);
+        btnPreviousAppointments.setOnClickListener(this);
 
-        ((Button) findViewById(R.id.logOut)).setOnClickListener(this);
+        btnLogout = (Button) findViewById(R.id.logOut);
+        btnLogout.setOnClickListener(this);
 
         String userID = getIntent().getStringExtra(getString(R.string.user_key));
 
@@ -63,5 +67,13 @@ public class PatientDashboardActivity extends AppCompatActivity implements View.
     }
     @Override
     public void onClick(View view) {
+        Intent intent;
+        switch (view.getId()) {
+            case R.id.btnBook:
+                intent = new Intent(this, DisplayDoctorActivity.class);
+                intent.putExtra(getString(R.string.loggedInUser), loggedInUser);
+                startActivity(intent);
+                break;
+        }
     }
 }

@@ -9,17 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Medical_Clinic">
-        <activity android:name=".PatientDashboardActivity"></activity>
+        <activity android:name=".DisplayAppointmentActivity" />
+        <activity android:name=".DoctorInfoActivity" />
+        <activity android:name=".PatientDashboardActivity" />
         <activity android:name=".DoctorDashboardActivity" />
-        <activity android:name=".Patient" />
-        <activity android:name=".User" />
-        <activity android:name=".Doctor" />
-        <activity android:name=".RegisterActivity" />
-        <activity
-            android:name=".ListOfPatientActivity"
-            android:exported="true" />
-        <activity android:name=".AppointmentActivity" />
         <activity android:name=".DisplayDoctorActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
