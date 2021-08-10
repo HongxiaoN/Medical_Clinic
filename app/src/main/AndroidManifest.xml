@@ -10,11 +10,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Medical_Clinic">
         <activity android:name=".DisplayAppointmentActivity" />
-        <activity android:name=".DoctorInfoActivity" />
-        <activity android:name=".PatientDashboardActivity" />
-        <activity android:name=".DoctorDashboardActivity" />
+
+        <activity android:name=".DoctorInfoActivity"
+                  android:parentActivityName=".DisplayDoctorActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DisplayDoctorActivity" />
+        </activity>
+        <activity android:name=".PatientDashboardActivity"
+                  android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".DoctorDashboardActivity"
+                  android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".DisplayDoctorActivity" />
-        <activity android:name=".RegisterActivity" />
+
+        <activity android:name=".RegisterActivity"
+                  android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
