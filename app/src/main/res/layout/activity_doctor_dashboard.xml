@@ -4,29 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DoctorMainPage">
+    tools:context=".DoctorDashboardActivity">
 
     <Button
-        android:id="@+id/button_doctorUpcomingApp"
+        android:id="@+id/btnUpcomingAppointments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:text="@string/button_doctorUpcomingApp"
+        android:layout_marginTop="120dp"
+        android:text="Upcoming Appointment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_doctorViewSchedule"
+        android:id="@+id/btnViewPatients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
-        android:onClick="displayDoctorSchedule"
-        android:text="@string/button_doctorViewSchedule"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="60dp"
+        android:text="View Patients"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_doctorUpcomingApp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btnUpcomingAppointments" />
+
+    <Button
+        android:id="@+id/btnViewTimeslot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="View Timeslot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnViewPatients" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
