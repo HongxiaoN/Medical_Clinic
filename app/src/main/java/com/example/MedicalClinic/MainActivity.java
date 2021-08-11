@@ -26,37 +26,55 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
-    private FirebaseAuth mAuth;
-    private CheckBox checkBoxRemember;
+
+    private EditText editTextEmail, editTextPassword;
+
     private TextView register;
     private Button btnLogIn;
-    private EditText editTextEmail, editTextPassword;
+
+    private CheckBox checkBoxRemember;
+
+    private FirebaseAuth mAuth;
+
+    private Presenter presenter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         btnLogIn = (Button) findViewById(R.id.btnLogIn);
         register = (TextView) findViewById(R.id.register);
+
         checkBoxRemember = (CheckBox) findViewById(R.id.checkboxRemember);
+
         preferences = getSharedPreferences("b07", Context.MODE_PRIVATE);
         editor = preferences.edit();
+
         checkSharedPreference();
         btnLogIn.setOnClickListener(this);
         register.setOnClickListener(this);
+
         mAuth = FirebaseAuth.getInstance();
+
+        presenter = new Presenter(new Model(), this);
+
     }
 
+    /**
+     * Check the shared preferences and set them accordingly
+     */
     private void checkSharedPreference() {
         String remember = preferences.getString(getString(R.string.ref_key_remember), "False");
         String email = preferences.getString(getString(R.string.ref_key_email), "");
         String password = preferences.getString(getString(R.string.ref_key_password), "");
+
+
         editTextEmail.setText(email);
         editTextPassword.setText(password);
         checkBoxRemember.setChecked(remember.equals("True"));
@@ -65,11 +83,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnLogIn:
-                logIn();
-                break;
             case R.id.register:
                 startActivity(new Intent(this, RegisterActivity.class));
+                break;
+            case R.id.btnLogIn:
+                logIn();
                 break;
         }
     }
@@ -77,11 +95,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void logIn() {
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+
+        // set SharedPreference
         editor.putString(getString(R.string.ref_key_remember), checkBoxRemember.isChecked() ? "True" : "False");
         editor.putString(getString(R.string.ref_key_email), checkBoxRemember.isChecked() ? email : "");
         editor.putString(getString(R.string.ref_key_password), checkBoxRemember.isChecked() ? password : "");
         editor.apply();
 
+        // validate
         if (email.isEmpty()) {
             editTextEmail.setError("Email is required!");
             editTextEmail.requestFocus();
@@ -106,44 +127,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+        presenter.login(email, password);
 
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful())
-                    Toast.makeText(MainActivity.this, "Failed to login!", Toast.LENGTH_LONG).show();
+    }
 
-                else {
-                    String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                    FirebaseDatabase.getInstance().getReference("UserTypes")
-                            .child(userID).child("userType").addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            String userType = snapshot.getValue(String.class);
-                            if (userType == null) {
-                                Toast.makeText(MainActivity.this, "Failed to login!", Toast.LENGTH_LONG).show();
-                            }
-                            else if (userType.equals("Doctor")) {
-                                Intent intent = new Intent(MainActivity.this, DoctorDashboardActivity.class);
-                                intent.putExtra(getString(R.string.user_key), userID);
-                                startActivity(intent);
-                            }
-                            else if (userType.equals("Patient")) {
-                                Intent intent = new Intent(MainActivity.this, PatientDashboardActivity.class);
-                                intent.putExtra(getString(R.string.user_key), userID);
-                                startActivity(intent);
-                            }
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                        }
-                    });
+    public void redirectToPatientDashboard(String userID) {
+        Intent intent = new Intent(MainActivity.this, PatientDashboardActivity.class);
+        intent.putExtra(getString(R.string.user_key), userID);
+        startActivity(intent);
+    }
 
-                }
-            }
-        });
-
+    public void redirectToDoctorDashboard(String userID) {
+        Intent intent = new Intent(MainActivity.this, DoctorDashboardActivity.class);
+        intent.putExtra(getString(R.string.user_key), userID);
+        startActivity(intent);
     }
 
 }
