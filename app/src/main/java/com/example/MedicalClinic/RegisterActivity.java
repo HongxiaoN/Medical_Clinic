@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Locale;
 import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -99,7 +100,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String birthOrSpecialty = editTextBirthOrSpecialty.getText().toString().trim();
 
         String gender = ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).
-                getText().toString().trim();
+                getText().toString().trim().toLowerCase();
 
         if (name.isEmpty()) {
             editTextName.setError("Name is required!");

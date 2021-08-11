@@ -154,7 +154,6 @@ public class DisplayDoctorActivity extends AppCompatActivity implements View.OnC
                 else {
                     getDoctors(specialty);
                 }
-
         }
     }
 }
