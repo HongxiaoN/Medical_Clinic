@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class DisplayDoctorActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -102,13 +103,58 @@ public class DisplayDoctorActivity extends AppCompatActivity implements View.OnC
 
     }
 
+
+    private void getDoctorGender(String specialty) {
+
+        Query query = FirebaseDatabase.getInstance().getReference("Doctors")
+                .orderByChild("gender");
+
+        if (specialty != null && !specialty.equals(""))
+            query = query.equalTo(specialty);
+
+
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                doctors.clear();
+
+                for (DataSnapshot docSnapshot: snapshot.getChildren()) {
+
+                    Doctor doctor = docSnapshot.getValue(Doctor.class);
+                    doctor.setID(docSnapshot.getKey());
+
+                    doctors.add(doctor);
+
+                }
+
+                // update UI (List view)
+                DoctorAdapter adapter = new DoctorAdapter(DisplayDoctorActivity.this, R.layout.doctor_item_layout, doctors);
+                listViewDoctor.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull  DatabaseError error) {
+
+            }
+        });
+
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.filterDoctor:
 
                 String specialty = ((EditText) findViewById(R.id.editTextSpecialty)).getText().toString().trim();
-                getDoctors(specialty);
+
+                if (specialty.toLowerCase().equals("male")|| specialty.toLowerCase().equals("female") )
+                {
+                    getDoctorGender(specialty);
+                }
+                else {
+                    getDoctors(specialty);
+                }
+
         }
     }
 }
