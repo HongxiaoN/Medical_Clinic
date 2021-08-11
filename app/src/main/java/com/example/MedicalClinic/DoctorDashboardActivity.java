@@ -29,6 +29,7 @@ public class DoctorDashboardActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_dashboard);
 
+
         btnUpcomingAppointments = (Button) findViewById(R.id.btnUpcomingAppointments);
         btnUpcomingAppointments.setOnClickListener(this);
 
@@ -64,5 +65,20 @@ public class DoctorDashboardActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
+
+        Intent intent;
+        switch (view.getId()) {
+            case R.id.btnViewPatients:
+                intent = new Intent(this, DisplayPatientActivity.class);
+                intent.putExtra(getString(R.string.loggedInUser), loggedInUser);
+                startActivity(intent);
+                break;
+
+            case R.id.btnViewTimeslot:
+                intent = new Intent(this, TimeslotActivity.class);
+                intent.putExtra(getString(R.string.user_key), userID);
+                startActivity(intent);
+                break;
+        }
     }
 }
