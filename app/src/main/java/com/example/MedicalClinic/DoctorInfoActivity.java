@@ -26,7 +26,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -58,23 +57,9 @@ public class DoctorInfoActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_info);
 
-        btnBook = (Button) findViewById(R.id.btnBook);
-        btnBook.setOnClickListener(this);
-
-        tvChangeDate = (TextView) findViewById(R.id.textViewChangeDate);
-        tvChangeDate.setOnClickListener(this);
-
-        tvChangeTime = (TextView) findViewById(R.id.textViewChangeTime);
-        tvChangeTime.setOnClickListener(this);
-
-        tvDate = (TextView) findViewById(R.id.textViewDate);
-        tvTime = (TextView) findViewById(R.id.textViewTime);
-
         tvName = (TextView) findViewById(R.id.textViewName);
         tvGender = (TextView) findViewById(R.id.textViewGender);
         tvSpecialty = (TextView) findViewById(R.id.textViewSpecialty);
-
-
 
         Intent intent = getIntent();
         loggedInUser = (Patient) intent.getSerializableExtra(getString(R.string.loggedInUser));
@@ -84,21 +69,12 @@ public class DoctorInfoActivity extends AppCompatActivity implements View.OnClic
         tvGender.setText(selectedDoctor.getGender());
         tvSpecialty.setText(selectedDoctor.getSpecialty());
 
-
         calendar = Calendar.getInstance();
 
-        // set current Date & Time
-        tvDate.setText(DateFormat.format(Appointment.DATE_FORMAT, calendar));
-        tvTime.setText(DateFormat.format(Appointment.TIME_FORMAT, calendar));
-
-
-
-
-        spinner = (Spinner) findViewById(R.id.spinner);
+      spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<Object> a = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Doctor.days);
         a.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(a);
-
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -175,7 +151,6 @@ public class DoctorInfoActivity extends AppCompatActivity implements View.OnClic
         timePickerDialog.show();
     }
 
-
     private void bookAppointment() {
 
         calendar = Calendar.getInstance();
@@ -233,8 +208,6 @@ public class DoctorInfoActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
-
-
     }
 
     private int getDayOfWeek(String day) {
@@ -250,16 +223,5 @@ public class DoctorInfoActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.textViewChangeDate:
-                changeDate();
-                break;
-            case R.id.textViewChangeTime:
-                changeTime();
-                break;
-            case R.id.btnBook:
-                bookAppointment();
-                break;
-        }
     }
 }
