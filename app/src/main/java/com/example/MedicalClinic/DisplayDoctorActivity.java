@@ -145,11 +145,12 @@ public class DisplayDoctorActivity extends AppCompatActivity implements View.OnC
         switch (view.getId()) {
             case R.id.filterDoctor:
 
-                String specialty = ((EditText) findViewById(R.id.editTextSpecialty)).getText().toString().trim();
+                String specialty = ((EditText) findViewById(R.id.editTextSpecialty)).getText().
+                        toString().trim().toLowerCase();
 
-                if (specialty.toLowerCase().equals("male")|| specialty.toLowerCase().equals("female") )
+                if (specialty.equals("male")|| specialty.equals("female") )
                 {
-                    getDoctorGender(specialty.toLowerCase());
+                    getDoctorGender(specialty);
                 }
                 else {
                     getDoctors(specialty);

@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String password = editTextPassword.getText().toString().trim();
         String name = editTextName.getText().toString().trim();
 
-        String birthOrSpecialty = editTextBirthOrSpecialty.getText().toString().trim();
+        String birthOrSpecialty = editTextBirthOrSpecialty.getText().toString().trim().toLowerCase();
 
         String gender = ((RadioButton) findViewById(radioGroup.getCheckedRadioButtonId())).
                 getText().toString().trim().toLowerCase();

@@ -11,14 +11,26 @@
         android:theme="@style/Theme.Medical_Clinic">
         <activity
             android:name=".TimeslotActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".DoctorDashboardActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DoctorDashboardActivity" />
+        </activity>
 
         <activity
             android:name=".PatientInfoActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".DisplayPatientActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DisplayPatientActivity" />
+        </activity>
+
         <activity
             android:name=".DisplayPatientActivity"
-            android:exported="true" />
+            android:exported="true"/>
+
         <activity android:name=".DisplayAppointmentActivity" />
         <activity
             android:name=".DoctorInfoActivity"

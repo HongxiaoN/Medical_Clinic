@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -17,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 public class DoctorDashboardActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Button btnUpcomingAppointments, btnViewPatients, btnViewTimeslot;
+    private Button btnUpcomingAppointments, btnViewPatients, btnViewTimeslot, btnLogout;
 
 
     private User loggedInUser;
@@ -38,6 +39,9 @@ public class DoctorDashboardActivity extends AppCompatActivity implements View.O
 
         btnViewTimeslot = (Button) findViewById(R.id.btnViewTimeslot);
         btnViewTimeslot.setOnClickListener(this);
+
+        btnLogout = (Button) findViewById(R.id.logOut);
+        btnLogout.setOnClickListener(this);
 
         userID = getIntent().getStringExtra(getString(R.string.user_key));
 
@@ -85,6 +89,10 @@ public class DoctorDashboardActivity extends AppCompatActivity implements View.O
                 intent.putExtra(getString(R.string.loggedInUser), loggedInUser);
                 intent.putExtra(getString(R.string.upcoming_appointment_key), true);
                 startActivity(intent);
+                break;
+            case R.id.logOut:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(DoctorDashboardActivity.this, MainActivity.class));
                 break;
         }
     }

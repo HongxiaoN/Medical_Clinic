@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +28,6 @@ public class DisplayPatientActivity extends AppCompatActivity {
 
     private ListView listViewPatient;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,6 @@ public class DisplayPatientActivity extends AppCompatActivity {
 
 
         loggedInUser = (User) getIntent().getSerializableExtra(getString(R.string.loggedInUser));
-
 
         patients = new ArrayList<Patient>();
 
@@ -90,5 +90,4 @@ public class DisplayPatientActivity extends AppCompatActivity {
         });
 
     }
-
 }
