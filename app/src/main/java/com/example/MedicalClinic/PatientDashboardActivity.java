@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -84,6 +85,10 @@ public class PatientDashboardActivity extends AppCompatActivity implements View.
                 intent.putExtra(getString(R.string.loggedInUser), loggedInUser);
                 intent.putExtra(getString(R.string.upcoming_appointment_key), false);
                 startActivity(intent);
+                break;
+            case R.id.logOut:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(PatientDashboardActivity.this, MainActivity.class));
                 break;
         }
     }
