@@ -79,6 +79,13 @@ public class DoctorDashboardActivity extends AppCompatActivity implements View.O
                 intent.putExtra(getString(R.string.user_key), userID);
                 startActivity(intent);
                 break;
+
+            case R.id.btnUpcomingAppointments:
+                intent = new Intent(this, DisplayAppointmentActivity.class);
+                intent.putExtra(getString(R.string.loggedInUser), loggedInUser);
+                intent.putExtra(getString(R.string.upcoming_appointment_key), true);
+                startActivity(intent);
+                break;
         }
     }
 }
