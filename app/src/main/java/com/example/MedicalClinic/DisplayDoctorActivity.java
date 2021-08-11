@@ -149,7 +149,7 @@ public class DisplayDoctorActivity extends AppCompatActivity implements View.OnC
 
                 if (specialty.toLowerCase().equals("male")|| specialty.toLowerCase().equals("female") )
                 {
-                    getDoctorGender(specialty);
+                    getDoctorGender(specialty.toLowerCase());
                 }
                 else {
                     getDoctors(specialty);
