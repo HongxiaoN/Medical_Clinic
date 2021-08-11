@@ -1,5 +1,4 @@
 package com.example.MedicalClinic;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;

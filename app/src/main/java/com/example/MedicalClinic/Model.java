@@ -1,13 +1,9 @@
 package com.example.MedicalClinic;
-
 import android.content.Intent;
-import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,7 +24,6 @@ public class Model {
 
     public void authenticate(String email, String password, Consumer<User> callback) {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
@@ -40,7 +35,6 @@ public class Model {
                     FirebaseDatabase.getInstance().getReference("UserTypes")
                             .child(userID).child("userType").addListenerForSingleValueEvent(new ValueEventListener() {
 
-                        @RequiresApi(api = Build.VERSION_CODES.N)
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             String userType = snapshot.getValue(String.class);
