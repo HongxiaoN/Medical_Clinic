@@ -11,56 +11,25 @@
         android:theme="@style/Theme.Medical_Clinic">
         <activity
             android:name=".TimeslotActivity"
-            android:exported="true"
-            android:parentActivityName=".DoctorDashboardActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".DoctorDashboardActivity" />
-        </activity>
-
+            android:exported="true"/>
         <activity
             android:name=".PatientInfoActivity"
-            android:exported="true"
-            android:parentActivityName=".DisplayPatientActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".DisplayPatientActivity" />
-        </activity>
-
+            android:exported="true"/>
         <activity
             android:name=".DisplayPatientActivity"
             android:exported="true"/>
-
         <activity android:name=".DisplayAppointmentActivity" />
+
         <activity
-            android:name=".DoctorInfoActivity"
-            android:parentActivityName=".DisplayDoctorActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".DisplayDoctorActivity" />
-        </activity>
+            android:name=".DoctorInfoActivity"/>
         <activity
-            android:name=".PatientDashboardActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".DoctorDashboardActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
+            android:name=".PatientDashboardActivity"/>
+        <activity android:name=".DoctorDashboardActivity"/>
+
         <activity android:name=".DisplayDoctorActivity" />
         <activity
-            android:name=".RegisterActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
+            android:name=".RegisterActivity"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
